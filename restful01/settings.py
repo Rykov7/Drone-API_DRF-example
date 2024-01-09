@@ -152,5 +152,6 @@ REST_FRAMEWORK = {
         'user': '10/hour',
         'drones': '20/hour',
         'pilots': '15/hour',
-    }
+    },
+    "DEFAULT_VERSIONING_CLASS": "rest_framework.versioning.NamespaceVersioning",
 }
