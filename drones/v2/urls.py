@@ -1,16 +1,17 @@
 from django.urls import path
 from drones import views
+from drones.v2 import views as views_v2
 
 app_name = 'drones'
 
 urlpatterns = [
     # Категории дронов.
-    path('drone-categories/', views.DroneCategoryList.as_view(), name=views.DroneCategoryList.name),
-    path('drone-categories/<int:pk>', views.DroneCategoryDetail.as_view(), name=views.DroneCategoryDetail.name),
+    path('vehicle-categories/', views.DroneCategoryList.as_view(), name=views.DroneCategoryList.name),
+    path('vehicle-categories/<int:pk>', views.DroneCategoryDetail.as_view(), name=views.DroneCategoryDetail.name),
 
     # Дроны.
-    path('drones/', views.DroneList.as_view(), name=views.DroneList.name),
-    path('drones/<int:pk>', views.DroneDetail.as_view(), name=views.DroneDetail.name),
+    path('vehicles/', views.DroneList.as_view(), name=views.DroneList.name),
+    path('vehicles/<int:pk>', views.DroneDetail.as_view(), name=views.DroneDetail.name),
 
     # Пилоты.
     path('pilots/', views.PilotList.as_view(), name=views.PilotList.name),
@@ -21,5 +22,5 @@ urlpatterns = [
     path('competitions/<int:pk>', views.CompetitionDetail.as_view(), name=views.CompetitionDetail.name),
 
     # Корень.
-    path('', views.ApiRoot.as_view(), name=views.ApiRoot.name),
+    path('', views_v2.ApiRootVersion2.as_view(), name=views_v2.ApiRootVersion2.name),
 ]

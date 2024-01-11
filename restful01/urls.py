@@ -20,6 +20,11 @@ from django.urls import path, include
 urlpatterns = [
     # path("admin/", admin.site.urls),
     path('toys-app', include('toys.urls')),
-    path("", include('drones.urls')),
-    path("api-auth/", include("rest_framework.urls")),
+
+    # drones
+    path("v1/", include('drones.urls', namespace='v1')),
+    path("v1/api-auth/", include("rest_framework.urls", namespace='rest_framework_v1')),
+
+    path("v2/", include('drones.v2.urls', namespace='v2')),
+    path("v2/api-auth/", include("rest_framework.urls", namespace='rest_framework_v2')),
 ]
